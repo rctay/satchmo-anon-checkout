@@ -14,3 +14,6 @@ BILLING_FIELDS = BILLING_FIELDS_REQUIRED + BILLING_FIELDS_OPTIONAL
 
 # Contact details.
 PERSONAL_FIELDS = ('first_name', 'last_name', 'email', 'phone')
+
+BLANK_DATA = u'blank'
+BLANK_EMAIL = u'blank@blank.com'

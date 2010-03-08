@@ -29,15 +29,15 @@ class AnonymousCheckoutMiddleware(object):
 
         # fill in all billing and contact fields
         for f in BILLING_FIELDS + PERSONAL_FIELDS:
-            data[f] = u'blank'
+            data[f] = BLANK_DATA
 
-        data['email'] = u'blank@blank.com'
+        data['email'] = BLANK_EMAIL
         data['copy_address'] = False
 
         for f in BILLING_FIELDS:
             ship_label = 'ship_%s' % f
             if not data.has_key(ship_label):
-                data[ship_label] = u'blank'
+                data[ship_label] = BLANK_DATA
             data[f] = data[ship_label]
 
         request.POST = data
