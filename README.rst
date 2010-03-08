@@ -11,6 +11,34 @@ Only shipping information is collected; for billing and contact information,
 it is assumed that you will refer to your payment gateway of choice (see the
 FAQ for more).
 
+Usage
+-----
+
+#. Activate our middleware::
+
+     MIDDLEWARE_CLASSES = (
+       ...
+       'satchmo_anon_checkout.middleware.AnonymousCheckoutMiddleware',
+       ...
+     )
+
+   We're not really choosy about where you put the middleware specification.
+
+#. Activate our signal listeners::
+
+     INSTALLED_APPS = (
+       ...
+       'satchmo_anon_checkout',
+       ...
+     )
+
+   There aren't any django-style models, so you don't have to bother running
+   ``syncdb``.
+
+#. Modify the template for step 1 of the checkout process; remove the contact
+   form and the billing fields, the ship addressee, and the "copy address"
+   field.
+
 FAQ
 ---
 
