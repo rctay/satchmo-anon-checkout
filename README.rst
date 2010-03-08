@@ -36,8 +36,10 @@ Usage
    ``syncdb``.
 
 #. Modify the template for step 1 of the checkout process; remove the contact
-   form and the billing fields, the ship addressee, and the "copy address"
-   field.
+   form and the billing fields, the ship addressee.
+
+   Leave the "copy address" field though; it will render as a
+   ``<input type="hidden">`` field. This way, Satchmo's JavaScript doesn't barf.
 
 FAQ
 ---

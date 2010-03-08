@@ -4,6 +4,7 @@ Copyright (C) 2009-2010, Tay Ray Chuan
 Please see LICENCE for licensing details.
 """
 
+from django.forms.widgets import HiddenInput
 from livesettings import config_value
 from payment.forms import PaymentContactInfoForm
 from signals_ahoy.signals import form_init
@@ -30,5 +31,10 @@ def mark_shipping_fields(sender, form=None, **kwards):
             continue
         if not form.fields[ship_label].required:
             _make_field_required(form.fields[ship_label], f)
+
+    if form.fields.has_key('copy_address'):
+        field = form.fields['copy_address']
+        if not field.widget.is_hidden:
+            field.widget = HiddenInput()
 
 form_init.connect(mark_shipping_fields, sender=PaymentContactInfoForm)
