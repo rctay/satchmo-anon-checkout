@@ -23,7 +23,7 @@ def mark_shipping_fields(sender, form=None, **kwards):
         # Follow what satchmo does to indicate a field is required.
         field.label = (field.label or name) + '*'
 
-    # for f in BILLING_FIELDS_REQUIRED:
+    # Respect SHOP.REQUIRED_BILLING_DATA; in addition to satchmo
     for f in config_value('SHOP', 'REQUIRED_BILLING_DATA'):
         ship_label = "ship_%s" % f
         if not form.fields[ship_label].required:
