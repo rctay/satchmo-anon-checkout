@@ -39,7 +39,9 @@ class AnonymousCheckoutMiddleware(object):
         # Implement the reverse of COPY_ADDRESS; copy shipping data
         # as billing data.
         for f in BILLING_FIELDS:
-            data[f] = data['ship_%s' % f]
+            ship_label = 'ship_%s' % f
+            if data.has_key(ship_label):
+                data[f] = data['ship_%s' % f]
 
         request.POST = data
 
