@@ -24,16 +24,10 @@ Usage
 
    We're not really choosy about where you put the middleware specification.
 
-#. Activate our signal listeners::
+#. Activate our signal listeners by importing ``satchmo_anon_checkout``:
 
-     INSTALLED_APPS = (
-       ...
-       'satchmo_anon_checkout',
-       ...
-     )
-
-   There aren't any django-style models, so you don't have to bother running
-   ``syncdb``.
+     # In your project's urls.py or settings.py
+     import satchmo_anon_checkout
 
 #. Modify the template for step 1 of the checkout process; remove the contact
    form and the billing fields, the ship addressee.
