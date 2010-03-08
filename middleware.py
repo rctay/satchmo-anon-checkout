@@ -16,8 +16,10 @@ class AnonymousCheckoutMiddleware(object):
     All fields except shipping fields (`ship_<field>`) will be filled with dummy
     data. You can safely leave these fields out of your form template.
 
-    For whatever reason, you could probably use this for other subclasses
-    of ContactInfoForm.
+    (For whatever reason, you could probably use this for other subclasses
+    of ContactInfoForm.)
+
+    Please read the README for more details.
     """
     def process_view(self, request, view_func, view_args, view_kwargs):
         # is this a submit?
