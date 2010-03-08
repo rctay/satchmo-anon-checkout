@@ -30,7 +30,7 @@ class AnonymousCheckoutMiddleware(object):
         data = request.POST.copy()
 
         # fill in all billing and contact fields
-        for f in BILLING_FIELDS + PERSONAL_FIELDS:
+        for f in PERSONAL_FIELDS:
             data[f] = BLANK_DATA
 
         data['email'] = BLANK_EMAIL
