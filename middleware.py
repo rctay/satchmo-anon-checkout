@@ -38,8 +38,6 @@ class AnonymousCheckoutMiddleware(object):
 
         for f in BILLING_FIELDS:
             ship_label = 'ship_%s' % f
-            if not data.has_key(ship_label):
-                data[ship_label] = BLANK_DATA
             data[f] = data[ship_label]
 
         request.POST = data
