@@ -26,8 +26,11 @@ Usage
 
 #. Activate our signal listeners by importing ``listeners.py``:
 
-     # In your project's urls.py or settings.py
+     # In your project's urls.py
      import satchmo_anon_checkout.listeners
+
+     It's not advisble to do this in your ``settings.py``, as it may lead to
+     circular imports.
 
 #. Modify the template for step 1 of the checkout process; remove the contact
    form and the billing fields, the ship addressee.
